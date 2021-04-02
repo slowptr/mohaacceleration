@@ -2,6 +2,7 @@
 #include <MinHook.h>
 #include <filesystem>
 #include "../game/hooks/cl_mousemove.h"
+#include "../game/sdk.h"
 #include "../game/signatures.h"
 #include "pattern_scan.h"
 
@@ -13,6 +14,8 @@ auto utils::c_hook::init() -> bool {
     char proc_name[MAX_PATH]{0};
     GetModuleFileName(GetModuleHandle(nullptr), proc_name, MAX_PATH);
     const auto file_name = std::filesystem::path(proc_name).filename().string();
+
+    game::sdk::init(file_name);
 
     if (!_add_hook(reinterpret_cast<void*>(pattern_scan(file_name, game::signatures::cl_mousemove)),
                    game::hooks::cl_mousemove::function,

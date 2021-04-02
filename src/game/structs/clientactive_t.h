@@ -10,7 +10,6 @@ namespace game::structs {
         char     pad_0014[3368]; //0x0014
         float    viewangles[3]; //0x0D3C
     };
-    inline clientactive_t* m_clientactive_t;
 } // namespace game::structs
 
 #endif //MOHAACCELERATION_CLIENTACTIVE_T_H
