@@ -1,7 +1,7 @@
 #ifndef MOHAACCELERATION_C_HOOK_H
 #define MOHAACCELERATION_C_HOOK_H
 
-namespace game {
+namespace utils {
     class c_hook {
        public:
         auto init() -> bool;
@@ -11,6 +11,6 @@ namespace game {
         auto _add_hook(void* target, void* hook, void** original) -> bool;
     };
     inline c_hook m_hook;
-} // namespace game
+} // namespace utils
 
 #endif //MOHAACCELERATION_C_HOOK_H

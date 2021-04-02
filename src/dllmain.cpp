@@ -1,17 +1,17 @@
 #include <Windows.h>
 #include <chrono>
 #include <thread>
-#include "game/c_hook.h"
+#include "utils/c_hook.h"
 
 auto __stdcall entry_loop(void* hinstance) -> unsigned long {
-    game::m_hook.init();
+    utils::m_hook.init();
 
     while (!(GetAsyncKeyState(VK_NUMPAD0))) {
         using namespace std::chrono_literals;
         std::this_thread::sleep_for(150ms);
     }
 
-    game::m_hook.finish();
+    utils::m_hook.finish();
     FreeLibraryAndExitThread((HMODULE)hinstance, 0);
 }
 

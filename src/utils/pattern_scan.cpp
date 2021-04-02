@@ -1,9 +1,8 @@
 #include "pattern_scan.h"
-#include <Windows.h>
-#include <psapi.h>
+#include <Psapi.h>
 #include <vector>
 
-namespace game {
+namespace utils {
     auto pattern_scan(std::string_view module_name, std::string_view pattern) -> uint32_t {
         static auto pattern_to_byte = [](const char* pattern) -> std::vector<std::size_t> {
             std::vector<std::size_t> bytes;
@@ -66,4 +65,4 @@ namespace game {
         auto* sig = (uint32_t*)(pattern_scan(module_name, pattern) + offset);
         return (uint32_t)sig + (uint32_t)*sig + 4;
     }
-} // namespace game
+} // namespace utils
