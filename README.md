@@ -17,3 +17,10 @@ cl_mouseAccelOption explanation:
     3: natural logarithmic accel
     4: source style acceleration
 ```
+
+
+i just realized, it doesn't scale your sensitivity down, when zoomed in with a sniper anymore.
+
+i do know, how to fix that though (i may add another cvar for that).
+
+it'll basically be like what "zoom_sensitivity_ratio_mouse" is in csgo then.
