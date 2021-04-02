@@ -19,5 +19,13 @@ namespace game::sdk {
         funcs::cvar_findvar     = (funcs::type_cvar_findvar)(utils::pattern_scan_relative_call(file_name, game::signatures::cvar_findvar, 0x1));
         structs::clientactive_t = (game::structs::clientactive_t*)(*(uint32_t*)(utils::pattern_scan(file_name, game::signatures::clientactive_t, 0x2)));
         variables::frame_msec   = (int*)(*(uint32_t*)(utils::pattern_scan(file_name, game::signatures::frame_msec, 0x1)));
+
+        funcs::cvar_get("sensitivity_scale_x", "1", game::structs::E_CVAR_FLAGS::ARCHIVE);
+        funcs::cvar_get("sensitivity_scale_y", "1", game::structs::E_CVAR_FLAGS::ARCHIVE);
+
+        funcs::cvar_get("cl_mouseAccelOffset", "0", game::structs::E_CVAR_FLAGS::ARCHIVE);
+        funcs::cvar_get("cl_mouseAccelOption", "0", game::structs::E_CVAR_FLAGS::ARCHIVE);
+        funcs::cvar_get("cl_mouseAccelPower", "2", game::structs::E_CVAR_FLAGS::ARCHIVE);
+        funcs::cvar_get("cl_mouseAccelThreshold", "0", game::structs::E_CVAR_FLAGS::ARCHIVE);
     }
 } // namespace game::sdk
